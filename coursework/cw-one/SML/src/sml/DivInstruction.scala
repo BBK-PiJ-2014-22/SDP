@@ -15,6 +15,6 @@ extends Instruction(label, op){
 
 object DivInstruction {
   def apply(label: String, result: Int, op1: Int, op2: Int) = 
-    new MulInstruction(label, "div", result, op1, op2)
+    new DivInstruction(label, "div", result, op1, op2)
 }
   
