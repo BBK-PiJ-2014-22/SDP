@@ -19,9 +19,3 @@ object SubInstruction {
   def apply(label: String, result: Int, op1: Int, op2: Int) = 
     new SubInstruction(label, "sub", result, op1, op2)
 }
-
-/*
-object AddInstruction {
-  def apply(label: String, result: Int, op1: Int, op2: Int) =
-    new AddInstruction(label, "add", result, op1, op2)
-}*/
