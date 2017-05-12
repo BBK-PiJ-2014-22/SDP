@@ -7,6 +7,7 @@ class Translator(fileName: String) {
   private final val ADD = "add"
   private final val LIN = "lin"
   private final val BNZ = "bnz"
+  private final val DIV = "div"
   private final val MUL = "mul"
   private final val SUB = "sub"
   private final val OUT = "out"
@@ -32,6 +33,8 @@ class Translator(fileName: String) {
             program = program :+ SubInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
           case MUL =>
             program = program :+ MulInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
+          case DIV =>
+            program = program :+ DivInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
           case x =>
             println(s"Unknown instruction $x")
         }

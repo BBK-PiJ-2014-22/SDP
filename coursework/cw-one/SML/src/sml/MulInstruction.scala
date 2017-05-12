@@ -2,6 +2,7 @@ package sml
 
 class MulInstruction(label: String, op: String, val result: Int, val op1: Int, val op2: Int) 
    extends Instruction(label, op) {
+  
    override def execute(m: Machine) {
     val value1 = m.regs(op1)
     val value2 = m.regs(op2)
