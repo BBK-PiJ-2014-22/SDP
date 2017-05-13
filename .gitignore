@@ -76,3 +76,10 @@ $RECYCLE.BIN/
 .classpath
 .cache-main
 .project
+*.xml
+*.iml
+New Folder
+*.prefs
+*.sbt
+
+.name

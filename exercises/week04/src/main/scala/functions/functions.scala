@@ -12,7 +12,11 @@ object Funcs {
     * @param ls : List[A] the list to process
     * @return A list containing all but the first element of ls
     */
-  def tail[A](ls: List[A]): List[A] = ???
+  def tail[A](ls: List[A]): List[A] = 
+    ls match {
+        case Nil => throw new IllegalArgumentException
+        case x => ls.drop(1)
+    }
 
   /**
     * setHead replaces the first value in a list with a given value. If the
@@ -23,7 +27,11 @@ object Funcs {
     * @return a list whose head is `a' and whose tail is all but the first
     *         element of ls.
     **/
-  def setHead[A](ls: List[A], a: A): List[A] = ???
+  def setHead[A](ls: List[A], a: A): List[A] = 
+    ls match {
+        case Nil => List(a)
+        case _ => List[A](a) ++ ls.drop(1)
+    }
 
   /**
     * drop removes n elements from the given list. If n is greater than the
@@ -33,7 +41,11 @@ object Funcs {
     * @param n  : Int the number of elements to drop.
     * @return a list with the first n elements of ls removed, or an empty list.
     */
-  def drop[A](ls: List[A], n: Int): List[A] = ???
+  def drop[A](ls: List[A], n: Int): List[A] = {ls match {
+    case Nil => Nil
+    case _ => ls.drop(n)
+    }
+  }
 
   /**
     * init takes a list and removes the last element.
@@ -43,44 +55,67 @@ object Funcs {
     * @param ls : List[A] the list to be changed.
     * @return a list with the last element of ls removed.
     */
-  def init[A](ls: List[A]): List[A] = ???
+  def init[A](ls: List[A]): List[A] = ls match {
+    case Nil => throw new IllegalArgumentException
+    case _ :: Nil => Nil 
+    case head :: tail => head :: init(tail)
+  }
 
   // LIST FOLDING
 
-  /*
+  /**
    * foldLeft reduces a list down to a single value by iteratively applying a
    * function over the elements of the list and carrying the cumulative result
    * along.
-   * We've provided the signature for foldLeft below.
    * @param ls: List[A] the list to be reduced.
    * @param z: B the initial value
    * @param f: (B, A) => B the binary function applied to the elements of the
    * list and the cumulative value.
    * @return the final valued.
    */
-  def foldLeft[A, B](ls: List[A], z: B)(f: (B, A) => B): B = ???
+  def foldLeft[A, B](ls: List[A], z: B)(f: (B, A) => B): B = ls match {
+    case Nil => z
+    case _ =>  foldLeft(ls.drop(1), f(z, ls(0)))(f)
+  }
 
   /**
     * Use your implementation of foldLeft to implement these functions:
     * - sum: Takes a List[Double] and produces the sum of all elements
-    * - product: Takes a List[Double] and produces the product of all elements
-    * - length: Takes a List[A] and finds the length of the list.
-    * - reverse: Takes a List[A] and produces a new list with the elements of
+*/
+  def sum(ls: List[Double]): Double = {
+    foldLeft[Double,Double](ls,0)( (x:Double, y:Double) => x + y)
+  }
+
+ 
+    /** - product: Takes a List[Double] and produces the product of all elements*/
+  def product(ls: List[Double]): Double = {
+    foldLeft[Double, Double](ls, 1)( (x:Double, y:Double) => x * y)
+  }
+  
+
+   /** - length: Takes a List[A] and finds the length of the list.*/ 
+  def length[A](ls: List[A]): Int = {
+    foldLeft[A,Int](ls,0)( (x: Int, y: A) => x + 1 ) 
+  }
+ 
+  /** - reverse: Takes a List[A] and produces a new list with the elements of
     * the first list in reverse order. That is, reverse(List(1,2,3)) =
-    * List(3,2,1).
-    * - flatten: Takes a List[List[A]] and produces a List[A] by joining all
+    * List(3,2,1).*/
+
+  def reverse[A](ls: List[A]): List[A] = ls match {
+    case Nil => Nil
+    case head :: tail => reverse(tail) ::: List(head)
+  }
+
+      /** - flatten: Takes a List[List[A]] and produces a List[A] by joining all
     * the sublists into one long list. For example, flatten(List(List(1,2,3),
     * List(4,5,6))) produces List(1,2,3,4,5,6).
     */
-  def sum(ls: List[Double]): Double = ???
-
-  def product(ls: List[Double]): Double = ???
-
-  def length[A](ls: List[A]): Int = ???
-
-  def reverse[A](ls: List[A]): List[A] = ???
-
-  def flatten[A](ls: List[List[A]]): List[A] = ???
+  def flatten[A](ls: List[A]): List[A] = ls match{
+    case Nil => Nil
+    case (head : List[A]) :: tail => flatten(head) ::: flatten(tail)
+    case head :: tail => head :: flatten(tail)
+  }
 
   // MAP AND FILTER
 
@@ -93,7 +128,10 @@ object Funcs {
     * @param f  : A => B the function to be applied to each element of the input.
     * @return the resulting list from applying f to each element of ls.
     */
-  def map[A, B](ls: List[A])(f: A => B): List[B] = ???
+  def map[A, B](ls: List[A])(f: A => B): List[B] = ls match {
+    case Nil => Nil
+    case _ => List(f(ls(0))) ::: map(ls.drop(1))(f)
+  }
 
   /**
     * filter removes all elements from a list for which a given predicate
@@ -104,7 +142,14 @@ object Funcs {
     * @param f  : A => Boolean the predicate
     * @return the filtered list.
     */
-  def filter[A](ls: List[A])(f: A => Boolean): List[A] = ???
+  def filter[A](ls: List[A])(f: A => Boolean): List[A] = ls match {
+    case Nil => Nil
+    case head :: tail => {
+      if (!f(head)) filter(tail)(f)
+      else head :: filter(tail)(f)
+        
+    }
+  }
 
   /**
     * flatMap is very similar to map. However, the function returns a List,
@@ -115,7 +160,14 @@ object Funcs {
     * @return a List[B] containing the flattened results of applying f to all
     *         elements of ls.
     */
-  def flatMap[A, B](ls: List[A])(f: A => List[B]): List[B] = ???
+    
+  def flatMap[A, B](ls: List[A])(f: A => List[B]): List[B] = ls match {
+    case Nil => Nil
+    case head :: tail => flatten(f(head)) ::: flatMap(tail)(f)    
+  
+  }
+    
+
 
   // COMBINING FUNCTIONS
 
@@ -129,7 +181,13 @@ object Funcs {
     *           length is greater than 0.
     * @return the average value of the largest values in the pairs.
     */
-  def maxAverage(ls: List[(Double, Double)]): Double = ???
+  def maxAverage(ls: List[(Double, Double)]): Double = {
+    val max = map(ls)(x => if (x._1 > x._2) List(x._1,x._1) else List(x._2,x._2))
+    val flat = for (i <- max) yield i(0)
+    val total = sum(flat)
+    total / length(flat)
+    
+  }
 
   /**
     * variance takes a List[Double] and calculates the squared distance
@@ -143,5 +201,10 @@ object Funcs {
     * @param ls     : List[Double] a list of values, whose length is greater than 0.
     * @param return the variance of the input.
     */
-  def variance(ls: List[Double]): Double = ???
+
+  def variance(ls: List[Double]): Double = {
+    val mean = sum(ls) / length(ls)
+    val powers = map(ls)(n => (n - mean)*(n - mean))
+    sum(powers) / length(powers)
+  }
 }
