@@ -9,12 +9,35 @@ object NumberPersonalities {
     
   }
   
+  /***Returns True if n is prime
+   * 
+   */
   def isPrime(n: Int) : Boolean = {
-    false
+    if (n <= 1) {
+      return false
+    } else {
+     for( i <- 2 to n-1){
+        if (n % i == 0) return false
+      }
+     return true
+    }
   }
   
+  /** Returns True if N is happy*/
   def isHappy(n: Int) : Boolean = {
-    false
+    
+    val unhappy = Array(4, 16, 37, 58, 89, 145, 42, 20)
+    
+    if (n <= 0) return false
+    
+    val digits = for (i <- n.toString.split("")) yield i.toInt
+    val squares = for (i <- digits) yield (i * i)
+    val total = squares.sum
+ 
+    if (total == 1) return true
+    else if (unhappy.contains(total)) return false
+    else return isHappy(total)
+    
   }
   
   def isTriangular(n: Int) : Boolean = {
