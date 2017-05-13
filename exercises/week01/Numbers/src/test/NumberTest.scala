@@ -44,10 +44,14 @@ object NumberTest extends App {
   testBools("Test isTriangular(5)", np.isTriangular(5), false)
   testBools("Test isTriangular(9)", np.isTriangular(9), false)
   
-  
-  
-
-
+  testBools("Test isSquare(-1)", np.isSquare(-1), false)
+  testBools("Test isSquare(0)", np.isSquare(0), false)
+  testBools("Test isSquare(1)", np.isSquare(1), true)
+  testBools("Test isSquare(5)", np.isSquare(5), false)
+  testBools("Test isSquare(7)", np.isSquare(7), false)
+  testBools("Test isSquare(4)", np.isSquare(4), true)
+  testBools("Test isSquare(8)", np.isSquare(8), true)
+  testBools("Test isSquare(16)", np.isSquare(16), true)
 
 }
  
