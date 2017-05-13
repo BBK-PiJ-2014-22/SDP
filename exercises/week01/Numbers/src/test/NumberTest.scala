@@ -65,9 +65,15 @@ object NumberTest extends App {
   testBools("test isSmug(7)", np.isSmug(8), true)
   testBools("test isSmug(10)", np.isSmug(10), true)
   testBools("test isSmug(13)", np.isSmug(13), true)
- 
   
- 
-  
+  testBools("test isPronic(-1)", np.isPronic(-1), false) 
+  testBools("test isPronic(0)", np.isPronic(0), false)
+  testBools("test isPronic(1)", np.isPronic(1), false)
+  testBools("test isPronic(3)", np.isPronic(3), false)
+  testBools("test isPronic(19)", np.isPronic(19), false)
+  testBools("test isPronic(2)", np.isPronic(2), true)
+  testBools("test isPronic(6)", np.isPronic(6), true)
+  testBools("test isPronic(12)", np.isPronic(12), true)    
+  testBools("test isPronic(20)", np.isPronic(20), true)
 }
  

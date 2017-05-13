@@ -67,7 +67,12 @@ object NumberPersonalities {
   }
   
   def isHonest(n: Int) : Boolean = {
-    false
+    for (i <- 1 to n){
+      val result = n/i
+      if (result == i && i*i != n) return true
+      if (result < n) return false
+    }
+    return false
   }
   
   
