@@ -87,15 +87,15 @@ object NumberPersonalities {
   
   
   def isDeficient(n: Int) : Boolean = {
-    false
+    return sumOfPositiveDivisorsOf(n) < n
   }
   
   def isPerfect(n: Int) : Boolean = {
-    false
+    return sumOfPositiveDivisorsOf(n) == n 
   }
   
   def isAbundant(n: Int) : Boolean = {
-    false
+    return sumOfPositiveDivisorsOf(n) > n 
   }
   
   def sumOfPositiveDivisorsOf(n: Int): Int = {
