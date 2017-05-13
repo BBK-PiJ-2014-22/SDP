@@ -53,5 +53,21 @@ object NumberTest extends App {
   testBools("Test isSquare(9)", np.isSquare(9), true)
   testBools("Test isSquare(16)", np.isSquare(16), true)
   testBools("Test isSquare(25)", np.isSquare(25), true)
+  
+  testBools("test isSmug(-1)", np.isSmug(-1), false)
+  testBools("Test isSmug(0)", np.isSmug(0), false)
+  testBools("test isSmug(1)", np.isSmug(1), false)
+  testBools("test isSmug(3)", np.isSmug(3), false)
+  testBools("test isSmug(7)", np.isSmug(7), false)
+  testBools("test isSmug(9)", np.isSmug(9), false)
+  testBools("test isSmug(2)", np.isSmug(2), true)
+  testBools("test isSmug(5)", np.isSmug(5), true)
+  testBools("test isSmug(7)", np.isSmug(8), true)
+  testBools("test isSmug(10)", np.isSmug(10), true)
+  testBools("test isSmug(13)", np.isSmug(13), true)
+ 
+  
+ 
+  
 }
  
