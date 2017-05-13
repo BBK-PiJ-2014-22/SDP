@@ -41,7 +41,6 @@ object NumberPersonalities {
   }
   
   def isTriangular(n: Int) : Boolean = {
-
     var base = 1
     var total = n
     while (total > 0){
@@ -51,7 +50,13 @@ object NumberPersonalities {
   }
   
   def isSquare(n: Int) : Boolean = {
-    false
+    var base = 1
+    var total = n
+    if (n == 0) return false
+    while (total > 0){
+      total -= base
+      base += 2}
+    return total == 0
   }
   
   def isSmug(n: Int) : Boolean = {

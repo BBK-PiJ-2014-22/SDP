@@ -50,8 +50,8 @@ object NumberTest extends App {
   testBools("Test isSquare(5)", np.isSquare(5), false)
   testBools("Test isSquare(7)", np.isSquare(7), false)
   testBools("Test isSquare(4)", np.isSquare(4), true)
-  testBools("Test isSquare(8)", np.isSquare(8), true)
+  testBools("Test isSquare(9)", np.isSquare(9), true)
   testBools("Test isSquare(16)", np.isSquare(16), true)
-
+  testBools("Test isSquare(25)", np.isSquare(25), true)
 }
  
