@@ -32,6 +32,22 @@ object NumberTest extends App {
   testBools("Test isHappy(68)", np.isHappy(68), true)
   testBools("Test isHappy(4)", np.isHappy(4), false)
   testBools("Test isHappy(95)", np.isHappy(95), false)
+  
+  testBools("Test isTriangular(-1)", np.isTriangular(-1), false)
+  testBools("Test isTriangular(0)", np.isTriangular(0), false)
+  testBools("Test isTriangular(1)", np.isTriangular(1), true)
+  testBools("Test isTriangular(3)", np.isTriangular(3), true)
+  testBools("Test isTriangular(6)", np.isTriangular(6), true)
+  testBools("Test isTriangular(10)", np.isTriangular(10), true)
+  testBools("Test isTriangular(2)", np.isTriangular(2), false)
+  testBools("Test isTriangular(4)", np.isTriangular(4), false)
+  testBools("Test isTriangular(5)", np.isTriangular(5), false)
+  testBools("Test isTriangular(9)", np.isTriangular(9), false)
+  
+  
+  
+
+
 
 }
  
