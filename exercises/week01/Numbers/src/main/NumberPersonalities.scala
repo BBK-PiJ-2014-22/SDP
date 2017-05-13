@@ -99,7 +99,8 @@ object NumberPersonalities {
   }
   
   def sumOfPositiveDivisorsOf(n: Int): Int = {
-    -1
+    val factors = for (i <- 1 to n-1 if n % i == 0) yield i
+    return factors.sum
   }
 }
 
