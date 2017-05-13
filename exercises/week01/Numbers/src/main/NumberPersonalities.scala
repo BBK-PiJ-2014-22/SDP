@@ -60,7 +60,10 @@ object NumberPersonalities {
   }
   
   def isSmug(n: Int) : Boolean = {
-    false
+    for (i <- 1 to n) {
+      if (isSquare(n - i*i)) return true
+    }
+    return false
   }
   
   def isHonest(n: Int) : Boolean = {
