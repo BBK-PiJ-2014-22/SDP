@@ -77,7 +77,12 @@ object NumberPersonalities {
   
   
   def isPronic(n: Int) : Boolean = {
-    false
+    for (i <- 1 to n) {
+      val test = i * (i+1)
+      if (n == test) return true
+      if (test > n ) return false
+    }
+    return false
   }
   
   
