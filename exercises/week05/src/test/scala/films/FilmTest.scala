@@ -1,8 +1,9 @@
-/**
 
 package films
 
-object FilmTest extends App {
+class FilmTest {
+  
+  main( args:Array[String] ): Unit = {
   val eastwood = new Director("Clint", "Eastwood", 1930)
   val mcTiernan = new Director("John", "McTiernan", 1951)
   val nolan = new Director("Christopher", "Nolan", 1970)
@@ -26,7 +27,6 @@ object FilmTest extends App {
   eastwood.yearOfBirth // should be 1930
   dieHard.director.name // should be "John McTiernan"
   invictus.isDirectedBy(nolan) // should be false
-
+  }
 }
 
-*/
