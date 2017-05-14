@@ -33,14 +33,7 @@ object SedanCarBuilder extends CarBuilder {
   override def buildFuelType: Unit = car.setFuelType(fueltype)
 
   override def getCar: Car = {
-    buildBodyStyle
-    buildPower
-    buildEngine
-    buildBreaks
-    buildSeats
-    buildWindows
-    buildFuelType
-    
+
     car
   }
 }
