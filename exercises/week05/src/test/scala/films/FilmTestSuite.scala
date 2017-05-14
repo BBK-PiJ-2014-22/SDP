@@ -22,4 +22,9 @@ class FilmTestSuite extends  FunSuite{
            && fil.director.yearOfBirth == 1930) 
   }
   
+  test("Test Name Method") {
+     val dir = new Director("Clint", "Eastwood", 1930)
+     assert(dir.name() == "Clint Eastwood")
+     
+  }
 }
