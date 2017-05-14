@@ -14,6 +14,11 @@ class CounterTest extends FunSuite {
     val ctr = new Counter(-10)
     assert(ctr.count == -10)
   }
+  
+  test("Constructor Test - default") {
+    val ctr = Counter()
+    assert(ctr.count == 0)
+  }
     
   test("Increment Test - 1 increment") {
     val ctr = new Counter(10)
