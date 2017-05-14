@@ -58,6 +58,12 @@ class CounterTest extends FunSuite {
         
   }
   
+  test("Adder 1 - adder(5)") {
+    val ctr = new Counter(10)
+    val ctr2 = ctr.adjust(new Adder(5))
+    assert(ctr2.count == 15 && ctr.count == 10)
+  }
+  
   
   
 }
