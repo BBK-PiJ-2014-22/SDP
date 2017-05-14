@@ -9,7 +9,9 @@ class Film (val name : String, val yearOfRelease: Int, val imdbRating : Double, 
   def isDirectedBy(dir : Director) : Boolean = dir == director
   
   def copy(name : String = this.name, yearOfRelease : Int = this.yearOfRelease, 
-      imdbRating : Double = this.imdbRating, director : Director = this.director) = ???
+      imdbRating : Double = this.imdbRating, director : Director = this.director) = {
+    new Film(name, yearOfRlease, imdbRating, director)
+  }
 }
 
 object Film
