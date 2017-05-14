@@ -1,10 +1,13 @@
 package counter
 
+/** Immutable data type which keeps count*/
 class Counter(val count : Int)  {
   
-  def inc() = new Counter(count+1)
+  /**increments the counter by n, where n=1 by default*/
+  def inc(n=1) = new Counter(count+n)
   
-  def dec() = new Counter(count-1)
+  /**decrements the counter by n, where n=1 by default*/  
+  def dec(n=1) = new Counter(count-n)
   
 }
 
