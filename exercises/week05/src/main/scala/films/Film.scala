@@ -10,7 +10,7 @@ class Film (val name : String, val yearOfRelease: Int, val imdbRating : Double, 
   
   def copy(name : String = this.name, yearOfRelease : Int = this.yearOfRelease, 
       imdbRating : Double = this.imdbRating, director : Director = this.director) = {
-    new Film(name, yearOfRlease, imdbRating, director)
+    new Film(name, yearOfRelease, imdbRating, director)
   }
 }
 

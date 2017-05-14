@@ -42,7 +42,7 @@ class FilmTestSuite extends  FunSuite{
   }
   
   test("Copy: No params") {
-    fil_copy = fil.copy()
+    val fil_copy = fil.copy()
     assert (
         fil_copy.name == "High Plains Drifter"
      && fil_copy.yearOfRelease == 1973
@@ -52,7 +52,7 @@ class FilmTestSuite extends  FunSuite{
   }
   
   test("Copy: Name Change") {
-    fil_copy = fil.copy(name = "New Name")
+    val fil_copy = fil.copy(name = "New Name")
     assert (
         fil_copy.name == "New Name"
      && fil_copy.yearOfRelease == 1973
@@ -62,7 +62,7 @@ class FilmTestSuite extends  FunSuite{
   }
     
   test("Copy: Year Change") {
-    fil_copy = fil.copy(yearOfRelease = 1980)
+    val fil_copy = fil.copy(yearOfRelease = 1980)
     assert (
         fil_copy.name == "High Plains Drifter"
      && fil_copy.yearOfRelease == 1980
@@ -72,7 +72,7 @@ class FilmTestSuite extends  FunSuite{
   }
     
   test("Copy: Rating Change") {
-    fil_copy = fil.copy(imdbRating = 9.9)
+    val fil_copy = fil.copy(imdbRating = 9.9)
     assert (
         fil_copy.name == "High Plains Drifter"
      && fil_copy.yearOfRelease == 1973
@@ -81,7 +81,7 @@ class FilmTestSuite extends  FunSuite{
      && fil.imdbRating == 7.7)
   }
   test("Copy: Director Change") {
-    fil_copy = fil.copy(director = dir2)
+    val fil_copy = fil.copy(director = dir2)
     assert (
         fil_copy.name == "High Plains Drifter"
      && fil_copy.yearOfRelease == 1973
