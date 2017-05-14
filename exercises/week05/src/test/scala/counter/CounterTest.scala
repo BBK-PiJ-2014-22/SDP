@@ -40,4 +40,4 @@ class CounterTest extends FunSuite {
     assert(ctr.count == 0)
         
 }
-
+}

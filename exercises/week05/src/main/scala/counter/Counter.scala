@@ -1,10 +1,10 @@
 package counter
 
-class Counter(val count : Int) = {
+class Counter(var count : Int)  {
   
-  def inc() = ???
+  def inc() = count += 1
   
-  def dec() = ???
+  def dec() = count -= 1
   
 }
 
