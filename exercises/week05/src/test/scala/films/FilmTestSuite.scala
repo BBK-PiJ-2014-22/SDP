@@ -25,6 +25,24 @@ class FilmTestSuite extends  FunSuite{
   test("Test Name Method") {
      val dir = new Director("Clint", "Eastwood", 1930)
      assert(dir.name() == "Clint Eastwood")
-     
+  }
+  
+  test("Test Director's Age") {
+    val dir = new Director("Clint", "Eastwood", 1930)
+    val fil = new Film("High Plains Drifter", 1973, 7.7, dir)
+    assert(fil.directorsAge() == 43)
+  }
+  
+  test("Test isDirectedBy - Positive") {
+     val dir = new Director("Clint", "Eastwood", 1930)
+     val fil = new Film("High Plains Drifter", 1973, 7.7, dir)
+     assert(fil.isDirectedBy(dir) == True)
+  }
+  
+  test("Test isDirectedBy - Negatiev") {
+     val dir = new Director("Clint", "Eastwood", 1930)
+     val dir2 = new Director("Norman", "Jewison", 1926)
+     val fil = new Film("High Plains Drifter", 1973, 7.7, dir)
+     assert(fil.isDirectedBy(dir) == True)
   }
 }
