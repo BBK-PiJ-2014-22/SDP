@@ -7,11 +7,11 @@ class CommentaryObject(var subscribers: ListBuffer[Observer], val title: String)
   var desc = ""
   
   def subscribeObserver(observer: Observer) = {
-    println(observer.msg + " subscribes from " + title)
+    println(observer + " subscribes from " + title)
     subscribers = subscribers :+ observer }
 
   def unSubscribeObserver(observer: Observer) = {
-    println(observer.msg + " unsubscribes from " + title)
+    println(observer + " unsubscribes from" + title)
     subscribers = subscribers.filter(_ == observer)}
 
   def notifyObservers() = {
