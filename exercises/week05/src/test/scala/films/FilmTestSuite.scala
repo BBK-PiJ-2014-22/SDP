@@ -6,14 +6,18 @@ import films.Film._
 
 class FilmTestSuite extends  FunSuite{
   
+
+   val  dir = new Director("Clint", "Eastwood", 1930)
+   val  fil = new Film("High Plains Drifter", 1973, 7.7, dir)
+   val  dir2 = new Director("Norman", "Jewison", 1926)
+  
+  
   test("Test Director Constructor") {
-    val dir = new Director("Clint", "Eastwood", 1930)
+    
     assert(dir.firstName == "Clint" && dir.lastName == "Eastwood" && dir.yearOfBirth == 1930) 
   }
   
   test("Test Film Constructor") {
-    val dir = new Director("Clint", "Eastwood", 1930)
-    val   fil = new Film("High Plains Drifter", 1973, 7.7, dir)
     assert(   fil.name == "High Plains Drifter"
            && fil.yearOfRelease == 1973
            && fil.imdbRating == 7.7
@@ -23,26 +27,23 @@ class FilmTestSuite extends  FunSuite{
   }
   
   test("Test Name Method") {
-     val dir = new Director("Clint", "Eastwood", 1930)
      assert(dir.name() == "Clint Eastwood")
   }
   
   test("Test Director's Age") {
-    val dir = new Director("Clint", "Eastwood", 1930)
-    val fil = new Film("High Plains Drifter", 1973, 7.7, dir)
     assert(fil.directorsAge() == 43)
   }
   
   test("Test isDirectedBy - Positive") {
-     val dir = new Director("Clint", "Eastwood", 1930)
-     val fil = new Film("High Plains Drifter", 1973, 7.7, dir)
-     assert(fil.isDirectedBy(dir) == True)
+     assert(fil.isDirectedBy(dir) == true)
   }
   
-  test("Test isDirectedBy - Negatiev") {
-     val dir = new Director("Clint", "Eastwood", 1930)
-     val dir2 = new Director("Norman", "Jewison", 1926)
-     val fil = new Film("High Plains Drifter", 1973, 7.7, dir)
-     assert(fil.isDirectedBy(dir) == True)
+  test("Test isDirectedBy - Negative") {
+
+     assert(fil.isDirectedBy(dir) == true)
+  }
+  
+  test("Copy: No params") {
+    
   }
 }
