@@ -1,6 +1,6 @@
 package person
 
-class Person ( val firstName : String , val lastName : String)
+case class Person ( firstName : String , lastName : String)
 
 object Person {
   def apply (fullName : String) = {
