@@ -1,6 +1,16 @@
-name := """exercises week04"""
+import Dependencies._
 
-version := "1.0"
+lazy val root = (project in file(".")).
+  settings(
+    inThisBuild(List(
+      organization := "com.example",
+      scalaVersion := "2.12.1",
+      version      := "0.1.0-SNAPSHOT"
+    )),
+    name := "Hello",
+    libraryDependencies += scalaTest % Test
+  )
+
 
 scalaVersion := "2.12.1"
 
@@ -10,8 +20,4 @@ libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.1"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 
 // Need to pull this in for reflective capabilities.
-
-// Exclude some folders associated with IntelliJ
-ideaExcludeFolders += ".idea"
-
-ideaExcludeFolders += ".idea_modules"
+libraryDependencies += "org.scala-lang" % "scala-compiler" % scalaVersion.value
