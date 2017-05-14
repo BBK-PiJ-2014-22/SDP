@@ -17,13 +17,13 @@ class CounterTest extends FunSuite {
     
   test("Increment Test - 1 increment") {
     val ctr = new Counter(10)
-    val ctr2 = ctr.inc
+    val ctr2 = ctr.inc()
     assert(ctr2.count == 11 && ctr.count == 10)
         
 }
   test("Increment Test - 5 increment") {
     val ctr = new Counter(10)
-    val ctr2 =  ctr.inc.inc.inc.inc.inc
+    val ctr2 =  ctr.inc().inc().inc().inc().inc()
     assert(ctr2.count == 15 && ctr.count == 10)
     
 }
@@ -42,7 +42,7 @@ class CounterTest extends FunSuite {
 }
   test("Decrement Test - 10 decrements") {
     val ctr = new Counter(10)
-    val ctr2 = ctr.dec.dec.dec.dec.dec
+    val ctr2 = ctr.dec().dec().dec().dec().dec()
     assert(ctr2.count == 5 && ctr.count == 10)
         
   }
