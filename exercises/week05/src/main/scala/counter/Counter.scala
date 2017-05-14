@@ -9,7 +9,7 @@ case class Counter(val count : Int = 0)  {
   /**decrements the counter by n, where n=1 by default*/  
   def dec(n : Int = 1) =  Counter(count-n)
   
-  def adjust(a : Adder) = Counter(a(count))
+  def adjust(a : Adder) = Counter(a.add(count))
   
 }
 
